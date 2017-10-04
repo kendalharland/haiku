@@ -24,7 +24,9 @@ class Haiku {
         .toList()
           ..removeWhere((w) => w.isEmpty);
 
-    if (countSyllablesAll(words) != 17) throw new ArgumentError(speech);
+    if (countSyllablesAll(words) != 17) {
+      throw new Exception('17 syllables required');
+    }
 
     List<String> firstLine, secondLine, thirdLine;
 
