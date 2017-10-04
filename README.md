@@ -1,7 +1,7 @@
 # haiku
 Detect and create Haikus
 
-Example
+## Example
 
 ```dart
 final haiku = Haiku.create('''
@@ -10,7 +10,7 @@ final haiku = Haiku.create('''
 print(const CitationFormatter('You').format(haiku));
 ```
 
-This will print:
+## This will print:
 
 ```
 *An old silent pond...
