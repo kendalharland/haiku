@@ -42,4 +42,20 @@ void main() {
       expect(haiku.thirdLine, ['splash!', 'Silence', 'again.']);
     });
   });
+
+  test('$HaikuFormatter should format a $Haiku', () {
+    expect(
+        const HaikuFormatter().format(Haiku.create(haiku1)),
+        '''An old silent pond...
+A frog jumps into the pond,
+splash! Silence again.''');
+  });
+
+  test('$ItalicsFormatter should format a $Haiku in italics', () {
+    expect(
+        const ItalicsFormatter().format(Haiku.create(haiku1)),
+        '''*An old silent pond...
+A frog jumps into the pond,
+splash! Silence again.*''');
+  });
 }

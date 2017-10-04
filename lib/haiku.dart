@@ -73,3 +73,21 @@ class Haiku {
   /// The third line of this haiku, with 5 syllables.
   List<String> get thirdLine => _lines[2];
 }
+
+class HaikuFormatter {
+  String format(Haiku haiku) => [
+        haiku.firstLine,
+        haiku.secondLine,
+        haiku.thirdLine
+      ].map((line) => line.join(' ')).join('\n');
+
+  const HaikuFormatter();
+}
+
+/// An 'Italics' formatter depending on where the haiku is rendered.
+class ItalicsFormatter extends HaikuFormatter {
+  @override
+  String format(Haiku haiku) => '*${super.format(haiku)}*';
+
+  const ItalicsFormatter();
+}
