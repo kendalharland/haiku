@@ -67,9 +67,9 @@ class Haiku {
   /// The first line of this haiku, with 5 syllables.
   List<String> get firstLine => _lines[0];
 
-  /// The first line of this haiku, with 5 syllables.
+  /// The second line of this haiku, with 7 syllables.
   List<String> get secondLine => _lines[1];
 
-  /// The first line of this haiku, with 5 syllables.
+  /// The third line of this haiku, with 5 syllables.
   List<String> get thirdLine => _lines[2];
 }
