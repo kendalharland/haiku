@@ -3,9 +3,7 @@ import 'package:test/test.dart';
 
 void main() {
   const haiku1 = ''' 
-  An old silent pond...
-  A frog jumps into the pond,
-  splash! Silence again.
+  An old silent pond... A frog jumps into the pond, splash! Silence again.
   ''';
 
   const haiku2 = '''
@@ -57,5 +55,14 @@ splash! Silence again.''');
         '''*An old silent pond...
 A frog jumps into the pond,
 splash! Silence again.*''');
+  });
+
+  test('$CitationFormatter should format a $Haiku with a citation', () {
+    expect(
+        const CitationFormatter('Obi Wan').format(Haiku.create(haiku1)),
+        '''*An old silent pond...
+A frog jumps into the pond,
+splash! Silence again.*
+    - Obi Wan''');
   });
 }

@@ -91,3 +91,13 @@ class ItalicsFormatter extends HaikuFormatter {
 
   const ItalicsFormatter();
 }
+
+/// Formats a [Haiku], citing the [speaker].
+class CitationFormatter extends ItalicsFormatter {
+  final String speaker;
+
+  @override
+  String format(Haiku haiku) => '${super.format(haiku)}\n    - $speaker';
+
+  const CitationFormatter(this.speaker);
+}
