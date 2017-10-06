@@ -19,7 +19,7 @@ class Haiku {
 
   static List<List<String>> _getHaikuLines(String speech) {
     var words = speech
-        .replaceAll('\n', '')
+        .replaceAll('\n', ' ')
         .split(' ')
         .map((w) => w.trim())
         .toList()

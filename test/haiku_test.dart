@@ -18,6 +18,16 @@ void main() {
   A lovely sunset.
   ''';
 
+  const haiku4 = '''
+  Robbie made a poem.  Why did the bot not quote it? I wish it was so
+  ''';
+
+  const haiku5 = '''
+  Such a tiny bug
+Yet this small flaw was fatal 
+Has grant cleaned his ass?
+  ''';
+
   const tooShortForHaiku = '''
   Autumn moonlight -
   a worm digs silently 
@@ -36,6 +46,8 @@ void main() {
       expect(Haiku.isHaiku(haiku1), true);
       expect(Haiku.isHaiku(haiku2), true);
       expect(Haiku.isHaiku(haiku3), true);
+      expect(Haiku.isHaiku(haiku4), true);
+      expect(Haiku.isHaiku(haiku5), true);
       expect(Haiku.isHaiku(tooShortForHaiku), false);
       expect(Haiku.isHaiku(tooLongForHaiku), false);
     });
