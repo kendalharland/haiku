@@ -1,9 +1,10 @@
 name: haiku
-version: 1.0.2
+version: 1.0.4
 homepage: https://github.com/kharland/haiku
 description: Detect and create Hiakus from plain text.
 author: Kendal Harland <kendaljharland@gmail.com>
 dependencies:
   meta:
+  packages:
 dev_dependencies:
   test:

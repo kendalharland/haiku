@@ -14,17 +14,16 @@ void main() {
       expect(countSyllables('the'), 1);
       expect(countSyllables('chestnut'), 2);
       expect(countSyllables('noncompetitively'), 6);
-      expect(countSyllables('poem'), 1);
+      expect(countSyllables('poem'), 2);
       expect(countSyllables('Robbie'), 2);
       expect(countSyllables('quote'), 1);
       expect(countSyllables('made'), 1);
-      expect(countSyllables('poem'), 1);
       expect(countSyllables('there'), 1);
       expect(countSyllables('Such'), 1);
       expect(countSyllables('tiny'), 2);
       expect(countSyllables('fatal'), 2);
       expect(countSyllables('cleaned'), 1);
-      expect(countSyllables('brilliant-hued'), 3);
+      expect(countSyllables('brilliant-hued'), 5);
       expect(countSyllables('an'), 1);
       expect(countSyllables('pond...'), 1);
       expect(countSyllables('pond,'), 1);
@@ -48,6 +47,9 @@ void main() {
       expect(countSyllables('grant'), 1);
       expect(countSyllables('his'), 1);
       expect(countSyllables('ass'), 1);
+      expect(countSyllables('haikus'), 2);
+      expect(countSyllables('haiku'), 2);
+      expect(countSyllables('maybe'), 2);
     });
   });
 }
