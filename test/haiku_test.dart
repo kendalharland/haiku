@@ -40,20 +40,32 @@ Has grant cleaned his ass?
   because it's tail is quite large.
   ''';
 
-  group(Haiku, () {
-    test('haiku Haiku.isHaiku should return true iff the given text is a haiku',
+  /// Words that are missing from the given dictionary.
+  const syllableCountOverrides = const <String, int>{
+    'noncompetitively': 6,
+    'hibiscus': 3,
+    'bot': 1,
+    'username': 3,
+  };
+
+  HaikuComposer composer =
+      const HaikuComposer(syllableCounts: syllableCountOverrides);
+
+  group(HaikuComposer, () {
+    test('haiku poet.isHaiku should return true iff the given text is a haiku',
         () {
-      expect(Haiku.isHaiku(haiku1), true);
-      expect(Haiku.isHaiku(haiku2), true);
-      expect(Haiku.isHaiku(haiku3), true);
-      expect(Haiku.isHaiku(haiku4), true);
-      expect(Haiku.isHaiku(haiku5), true);
-      expect(Haiku.isHaiku(tooShortForHaiku), false);
-      expect(Haiku.isHaiku(tooLongForHaiku), false);
+      composer.compose(haiku3);
+      expect(composer.isHaiku(haiku1), true);
+      expect(composer.isHaiku(haiku2), true);
+      expect(composer.isHaiku(haiku3), true);
+      expect(composer.isHaiku(haiku4), true);
+      expect(composer.isHaiku(haiku5), true);
+      expect(composer.isHaiku(tooShortForHaiku), false);
+      expect(composer.isHaiku(tooLongForHaiku), false);
     });
 
     test('create should create a haiku', () {
-      final haiku = Haiku.create(haiku1);
+      final haiku = composer.compose(haiku1);
       expect(haiku.firstLine, ['An', 'old', 'silent', 'pond...']);
       expect(haiku.secondLine, ['A', 'frog', 'jumps', 'into', 'the', 'pond,']);
       expect(haiku.thirdLine, ['splash!', 'Silence', 'again.']);
@@ -62,7 +74,7 @@ Has grant cleaned his ass?
 
   test('$HaikuFormatter should format a $Haiku', () {
     expect(
-        const HaikuFormatter().format(Haiku.create(haiku1)),
+        const HaikuFormatter().format(composer.compose(haiku1)),
         '''An old silent pond...
 A frog jumps into the pond,
 splash! Silence again.''');
@@ -71,7 +83,7 @@ splash! Silence again.''');
   test('$CitationFormatter should format a $Haiku with a citation', () {
     expect(
         new CitationFormatter('Obi Wan', new TestFormatter())
-            .format(Haiku.create(haiku1)),
+            .format(composer.compose(haiku1)),
         '''An old silent pond...
 A frog jumps into the pond,
 splash! Silence again.

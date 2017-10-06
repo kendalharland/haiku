@@ -14,25 +14,26 @@ final haikuPoem = '''
     An old silent pond... A frog jumps into the pond, splash! Silence again.
 ''';
 
-print(Haiku.isHaiku(poem); // False; 19 syllables
-print(Haiku.isHaiku(haikuPoem); // True
+HaikuComposer composer = new HaikuComposer();
+print(composer.isHaiku(poem)); // False; 19 syllables
+print(composer.isHaiku(haikuPoem)); // True
 ```
 
 #### Creating a Haiku
 
 ```dart
-final haiku = Haiku.create(haikuPoem);
+final haiku = composer.create(haikuPoem);
 print(haiku.firstLine); // ['An', 'old', 'silent', 'pond...'];
+print(haiku.secondLine); // ['A', 'frog', 'jumps', 'into', 'the', 'pond'];
 print(haiku.thirdLine); // ['splash!', 'Silence', 'again.'];
 ```
 
 #### Printing a Haiku
 
 ```dart
-print(const CitationFormatter('You').format(haiku));
+print(const HaikuFormatter().format(haiku));
 
-//  *An old silent pond...
+//  An old silent pond...
 //  A frog jumps into the pond,
-//  splash! Silence again.*
-//      - You
+//  splash! Silence again.
 ```
