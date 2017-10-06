@@ -56,20 +56,15 @@ A frog jumps into the pond,
 splash! Silence again.''');
   });
 
-  test('$ItalicsFormatter should format a $Haiku in italics', () {
-    expect(
-        const ItalicsFormatter().format(Haiku.create(haiku1)),
-        '''*An old silent pond...
-A frog jumps into the pond,
-splash! Silence again.*''');
-  });
-
   test('$CitationFormatter should format a $Haiku with a citation', () {
     expect(
-        const CitationFormatter('Obi Wan').format(Haiku.create(haiku1)),
-        '''*An old silent pond...
+        new CitationFormatter('Obi Wan', new TestFormatter())
+            .format(Haiku.create(haiku1)),
+        '''An old silent pond...
 A frog jumps into the pond,
-splash! Silence again.*
+splash! Silence again.
     - Obi Wan''');
   });
 }
+
+class TestFormatter extends HaikuFormatter {}
