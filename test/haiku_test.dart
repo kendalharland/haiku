@@ -19,7 +19,7 @@ void main() {
   ''';
 
   const haiku4 = '''
-  Robbie made a poem.  Why did the bot not quote it? I wish it was so
+  Robbie made poems.  Why did the bot not quote him? I wish it was so
   ''';
 
   const haiku5 = '''
@@ -43,39 +43,39 @@ Has grant cleaned his ass?
   group(Haiku, () {
     test('haiku Haiku.isHaiku should return true iff the given text is a haiku',
         () {
-//      expect(Haiku.isHaiku(haiku1), true);
-//      expect(Haiku.isHaiku(haiku2), true);
+      expect(Haiku.isHaiku(haiku1), true);
+      expect(Haiku.isHaiku(haiku2), true);
       expect(Haiku.isHaiku(haiku3), true);
-//      expect(Haiku.isHaiku(haiku4), true);
-//      expect(Haiku.isHaiku(haiku5), true);
-//      expect(Haiku.isHaiku(tooShortForHaiku), false);
-//      expect(Haiku.isHaiku(tooLongForHaiku), false);
+      expect(Haiku.isHaiku(haiku4), true);
+      expect(Haiku.isHaiku(haiku5), true);
+      expect(Haiku.isHaiku(tooShortForHaiku), false);
+      expect(Haiku.isHaiku(tooLongForHaiku), false);
     });
 
-//    test('create should create a haiku', () {
-//      final haiku = Haiku.create(haiku1);
-//      expect(haiku.firstLine, ['An', 'old', 'silent', 'pond...']);
-//      expect(haiku.secondLine, ['A', 'frog', 'jumps', 'into', 'the', 'pond,']);
-//      expect(haiku.thirdLine, ['splash!', 'Silence', 'again.']);
-//    });
-//  });
-//
-//  test('$HaikuFormatter should format a $Haiku', () {
-//    expect(
-//        const HaikuFormatter().format(Haiku.create(haiku1)),
-//        '''An old silent pond...
-//A frog jumps into the pond,
-//splash! Silence again.''');
-//  });
-//
-//  test('$CitationFormatter should format a $Haiku with a citation', () {
-//    expect(
-//        new CitationFormatter('Obi Wan', new TestFormatter())
-//            .format(Haiku.create(haiku1)),
-//        '''An old silent pond...
-//A frog jumps into the pond,
-//splash! Silence again.
-//    - Obi Wan''');
+    test('create should create a haiku', () {
+      final haiku = Haiku.create(haiku1);
+      expect(haiku.firstLine, ['An', 'old', 'silent', 'pond...']);
+      expect(haiku.secondLine, ['A', 'frog', 'jumps', 'into', 'the', 'pond,']);
+      expect(haiku.thirdLine, ['splash!', 'Silence', 'again.']);
+    });
+  });
+
+  test('$HaikuFormatter should format a $Haiku', () {
+    expect(
+        const HaikuFormatter().format(Haiku.create(haiku1)),
+        '''An old silent pond...
+A frog jumps into the pond,
+splash! Silence again.''');
+  });
+
+  test('$CitationFormatter should format a $Haiku with a citation', () {
+    expect(
+        new CitationFormatter('Obi Wan', new TestFormatter())
+            .format(Haiku.create(haiku1)),
+        '''An old silent pond...
+A frog jumps into the pond,
+splash! Silence again.
+    - Obi Wan''');
   });
 }
 

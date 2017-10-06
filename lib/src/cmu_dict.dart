@@ -1,10 +1,13 @@
 import 'dart:io';
+import 'package:haiku/src/allowed_chars.dart';
 import 'package:packages/packages.dart';
 
 /// Words that are missing from the given dictionary.
 const _missingWords = const <String, int>{
   'noncompetitively': 6,
   'hibiscus': 3,
+  'bot': 1,
+  'username': 3,
 };
 
 /// Builds a dictionary mapping words to syllable counts from src/data/cmudict*
@@ -22,13 +25,12 @@ Map<String, int> buildCmuDict() {
 
 Map<String, int> _processCmuDict(List<String> dictLines) {
   final map = <String, int>{};
-  final nonLetters = new RegExp(r'[^a-z]');
 
   for (var line in dictLines) {
     var parts = line.split('  ');
     var word = parts.first.toLowerCase();
 
-    if (word.contains(nonLetters)) {
+    if (word.contains(unallowedChars)) {
       continue;
     }
 
@@ -40,8 +42,11 @@ Map<String, int> _processCmuDict(List<String> dictLines) {
       syllableCount -= 1;
     }
 
-    word = word.replaceAll(nonLetters, '');
-    map[word] = syllableCount;
+    word = word.replaceAll(unallowedChars, '');
+
+    if (!map.containsKey(word)) {
+      map[word] = syllableCount;
+    }
   }
   return map;
 }

@@ -1,10 +1,11 @@
+import 'package:haiku/src/allowed_chars.dart';
 import 'package:haiku/src/cmu_dict.dart';
 
 const _vowels = 'aeiouy';
 final dict = buildCmuDict();
 
 int countSyllables(String word) {
-  word = word.toLowerCase().replaceAll(new RegExp(r'[^a-z]'), ' ').trim();
+  word = word.toLowerCase().replaceAll(unallowedChars, ' ').trim();
 
   if (word.contains(' ')) {
     var words = word.split(' ')..removeWhere((w) => w.trim().isEmpty);

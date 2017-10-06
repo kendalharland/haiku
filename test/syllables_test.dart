@@ -20,6 +20,7 @@ void main() {
       expect(countSyllables('made'), 1);
       expect(countSyllables('there'), 1);
       expect(countSyllables('Such'), 1);
+      expect(countSyllables('leave'), 1);
       expect(countSyllables('tiny'), 2);
       expect(countSyllables('fatal'), 2);
       expect(countSyllables('cleaned'), 1);
@@ -29,6 +30,7 @@ void main() {
       expect(countSyllables('pond,'), 1);
       expect(countSyllables('again'), 2);
       expect(countSyllables('old'), 1);
+      expect(countSyllables("I'm"), 1);
       expect(countSyllables('silent'), 2);
       expect(countSyllables('jumps'), 1);
       expect(countSyllables('splash!'), 1);
@@ -50,6 +52,11 @@ void main() {
       expect(countSyllables('haikus'), 2);
       expect(countSyllables('haiku'), 2);
       expect(countSyllables('maybe'), 2);
+      expect(countSyllables('with'), 1);
+      expect(countSyllables('bot'), 1);
+      expect(countSyllables('sweet'), 1);
+      expect(countSyllables('am'), 1);
+      expect(countSyllables('mature'), 2);
     });
   });
 }
